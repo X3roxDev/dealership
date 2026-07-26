@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEALERSHIP</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: transparent !important;">
+    <div class="container" id="app" style="display: none;">
+        <div class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fas fa-car-side"></i>
+                </div>
+                <div class="brand-text">
+                    <h1><span>X3roxDev</span><strong>Dealership</strong></h1>
+                    <p>Vehicle Shop</p>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <h3>Categories</h3>
+                <div class="filters" id="category-filters">
+                    <!-- Categories injected by JS -->
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-th-large"></i> All Vehicles
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="back-btn" id="sidebar-close-btn">
+                    <i class="fas fa-power-off"></i>
+                    <span>back</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="section-title">
+                    <i class="fas fa-chart-line"></i>
+                    <span>DEALERSHIP</span>
+                </div>
+                <div class="top-bar-left">
+                    <div class="search-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search" placeholder="Search for your dream car...">
+                    </div>
+                    <div class="sort-wrapper">
+                        <select id="sort-select">
+                             <option value="lowest_price">Price: Low to High</option>
+                             <option value="highest_price">Price: High to Low</option>
+                             <option value="name_az">Name: A-Z</option>
+                             <option value="name_za">Name: Z-A</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="close-btn" id="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="content-area">
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <span>Available Vehicles</span>
+                        <strong id="vehicle-count">0</strong>
+                    </div>
+                    <div class="stat-box">
+                        <span>Test Drive</span>
+                        <strong>Free / 30s</strong>
+                    </div>
+                    <div class="stat-box">
+                        <span>Selected Class</span>
+                        <strong id="selected-class">All</strong>
+                    </div>
+                </div>
+
+                <section class="catalog-panel">
+                    <div class="panel-header">
+                        <div>
+                            <i class="fas fa-star"></i>
+                            <span>Most Wanted Vehicles</span>
+                        </div>
+                    </div>
+                    <div class="vehicle-grid" id="vehicle-grid">
+                        <!-- Vehicles injected by JS -->
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <div class="modal-body">
+                    <div class="modal-preview">
+                        <img id="modal-img" src="" alt="Vehicle Preview">
+                        <div class="vehicle-stats">
+                            <!-- Could add speed/accel bars here later if data available -->
+                        </div>
+                    </div>
+                    <div class="modal-info">
+                        <div class="info-header">
+                            <span class="brand-badge" id="modal-brand">BRAND</span>
+                            <h2 id="modal-title">Vehicle Name</h2>
+                            <span class="category-badge" id="modal-class">Class</span>
+                        </div>
+
+                        <div class="price-tag">
+                            <span class="currency">$</span>
+                            <span id="modal-price">0</span>
+                        </div>
+
+                        <div class="customization">
+                            <h3>Select Color</h3>
+                            <div class="color-picker">
+                                <div class="color-option selected" style="background: #050505;" data-color="0"></div>
+                                <div class="color-option" style="background: #ffffff;" data-color="111"></div>
+                                <div class="color-option" style="background: #8e44ff;" data-color="145"></div>
+                                <div class="color-option" style="background: #2b123f;" data-color="71"></div>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn btn-test" id="test-drive-btn">
+                                <i class="fas fa-gauge-high"></i> Test Drive
+                            </button>
+                            <button class="btn btn-buy" id="buy-btn">
+                                <i class="fas fa-check"></i> Purchase Vehicle
+                            </button>
+                        </div>
+
+                        <div class="payment-menu" id="payment-menu">
+                            <h3>Payment Method</h3>
+                            <div class="payment-options">
+                                <button class="payment-option" data-payment="cash">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Cash</span>
+                                </button>
+                                <button class="payment-option" data-payment="bank">
+                                    <i class="fas fa-building-columns"></i>
+                                    <span>Bank Transfer</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
